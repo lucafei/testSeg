@@ -1,0 +1,18 @@
+SOURCE: SimRunway
+TARGET: RealRunway
+NUM_WORKERS: 0
+GPU_ID: 0
+TRAIN:
+  DA_METHOD: AdvEnt
+  MODEL: DeepLabv2
+  RESTORE_FROM: C:/semseg/IntraDA/ADVENT/experiments/snapshots/SimRunway2RealRunway_DeepLabv2_AdvEnt_4class_18_01/model_10000.pth
+  MULTI_LEVEL: True
+  LAMBDA_ADV_MAIN: 0.001
+  LAMBDA_ADV_AUX: 0.0002
+TEST:
+  MODE: best
+DATA_LIST_SOURCE: 'C:/semseg/IntraDA/ADVENT/advent/dataset/simrunway_list/{}.txt'
+DATA_LIST_TARGET: 'C:/semseg/IntraDA/ADVENT/advent/dataset/realrunway_list/{}.txt'
+DATA_DIRECTORY_SOURCE: 'C:/semseg/IntraDA/ADVENT/data/SimRunway'
+DATA_DIRECTORY_TARGET: 'C:/semseg/IntraDA/ADVENT/data/RealRunway'
+NUM_CLASSES: 4
